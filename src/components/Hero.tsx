@@ -20,7 +20,7 @@ export default function Hero() {
           <h2 className="uppercase tracking-widest text-blue-100 text-xs text-center max-w-80 font-medium">Amazing web magic with next.js</h2>
           <GenerateText className="text-center text-[40px] md:text-4xl lg:text-5xl" words={"Transforming concepts into seamless experiences"}/>
           <p className="mt-4 text-white-100 text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">Hi, I'm Henry, a software engineer based in the UK</p>
-          <TWButton icon={<CiLocationArrow1 /> } position="right">Check out my work&nbsp;</TWButton>
+          <TWButton icon={<CiLocationArrow1 /> } position="right" className="mt-4">Check out my work&nbsp;</TWButton>
         </div>
       </div>
     </section>
