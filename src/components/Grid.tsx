@@ -11,17 +11,21 @@ import {
 } from "@tabler/icons-react";
 import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 
-export function Grid({items, className}: {items: {title: string, description: string, header: React.ReactNode, icon: React.ReactNode}[], className?: string}) {
+export function Grid({items, className}: {items: GridItem[], className?: string}) {
   return (
     <BentoGrid className={ cn( "max-w-4xl mx-auto", className ) }>
       {items.map((item, i) => (
         <BentoGridItem
-          key={i}
+          id={item.id}
+          key={item.id}
           title={item.title}
           description={item.description}
-          header={item.header}
-          icon={item.icon}
-          className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+          className={item.className}
+          img={item.img}
+          imgClassName={item.imgClassName}
+          titleClassName={item.titleClassName}
+          spareImg={item.spareImg}
+          
         />
       ))}
     </BentoGrid>
