@@ -13,7 +13,7 @@ import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 
 export function Grid({items, className}: {items: GridItem[], className?: string}) {
   return (
-    <BentoGrid className={ cn( "max-w-4xl mx-auto", className ) }>
+    <BentoGrid className={ cn( "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto", className ) }>
       {items.map((item, i) => (
         <BentoGridItem
           id={item.id}
