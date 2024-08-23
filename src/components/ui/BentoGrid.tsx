@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBackground";
+import { Globe, World } from "./Globe";
+import { GlobeBento } from "../GlobeBento";
 
 export const BentoGrid = ({
   className,
@@ -60,9 +62,11 @@ export const BentoGridItem = ({
       {id === 6 && (<BackgroundGradientAnimation containerClassName="absolute w-full h-full inset-0">
         <div className="flex justify-center items-center text-white font-bold"/>
       </BackgroundGradientAnimation>)}
+      {id === 2 && <GlobeBento/>}
       <div className={ cn('absolute inset-0 w-full h-full bg-gray-500/0 group-hover/bento:bg-gray-500/20 transition-all ease-in-out') }></div>
       <h2 className={cn(titleClassName, 'relative text-white font-semibold text-lg transition-transform ease-in-out md:h-full min-h-40 flex flex-col p-5 lg:p-10')}>
-        {title}
+        <div className="font-extralight font-sans text-sm md:text-xs text-[#c1c2d3] lg:text-base relative">{description}</div>
+        <div className="font-bold tracking-wide text-lg md:text-2xl max-w-96">{title}</div>
       </h2>
     </div>
   );
