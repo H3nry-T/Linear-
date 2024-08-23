@@ -63,6 +63,18 @@ export const BentoGridItem = ({
         <div className="flex justify-center items-center text-white font-bold"/>
       </BackgroundGradientAnimation>)}
       {id === 2 && <GlobeBento/>}
+      {id === 3 && <div className="text-neutral-400/80 absolute top-6 sm:top-[50px] -right-12 font-sans text-lg tracking-wide grid grid-rows-4 gap-2 text-center font-semibold grid-flow-col lg:text-xl lg:top-[360px] xl:top-[320px] lg:-right-16"> 
+          {["React.js", "Typescript", "Python", "",  "", "Tailwind.css", "Framermotion", "Three.js"].map((item) => {
+            if (item.length <= 0) {
+              return <span className="rounded-3xl border border-white/[0.1] py-2 px-4 bg-[#3f3f4b]/[0.9] min-w-32 min-h-4">&nbsp;</span>
+            }
+            else {
+              return <div className="rounded-3xl border border-white/[0.1] py-2 px-4 bg-[#3f3f4b]/[0.4] min-w-32 min-h-4">
+                { item } 
+              </div>
+            }
+          })}
+       </div>}
       <div className={ cn('absolute inset-0 w-full h-full bg-gray-500/0 group-hover/bento:bg-gray-500/20 transition-all ease-in-out') }></div>
       <h2 className={cn(titleClassName, 'relative text-white font-semibold text-lg transition-transform ease-in-out md:h-full min-h-40 flex flex-col p-5 lg:p-10')}>
         <div className="font-extralight font-sans text-sm md:text-xs text-[#c1c2d3] lg:text-base relative">{description}</div>
