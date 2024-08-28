@@ -3,9 +3,11 @@ import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBackground";
 import { Globe, World } from "./Globe";
 import { GlobeBento } from "../GlobeBento";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import animationData from "../../data/confetti.json";
 import Lottie from "react-lottie";
+import { TWButton } from "./TWButton";
+import { IoCopyOutline } from "react-icons/io5";
 
 export const BentoGrid = ({
   className,
@@ -25,6 +27,11 @@ export const BentoGrid = ({
     </div>
   );
 };
+
+function handleCopy(copied: boolean, setCopied:Dispatch<SetStateAction<boolean>> ) {
+  navigator.clipboard.writeText('random@gmail.com')
+  setCopied(!copied);
+}
 
 export const BentoGridItem = ({
   id, 
@@ -80,8 +87,13 @@ export const BentoGridItem = ({
             }
           })}
        </div>}
-       {id === 6 && <div className="mt-5 relative">
-          <div className={`absolute -bottom-5 right-0`}>
+      <div className={ cn('absolute inset-0 w-full h-full bg-gray-500/0 group-hover/bento:bg-gray-500/20 transition-all ease-in-out') }></div>
+      <h2 className={cn(titleClassName, 'relative text-white font-semibold text-lg transition-transform ease-in-out md:h-full min-h-40 flex flex-col p-5 lg:p-10')}>
+        <div className="font-extralight font-sans text-sm md:text-xs text-[#c1c2d3] lg:text-base relative">{description}</div>
+        <div className="font-bold tracking-wide text-lg md:text-2xl max-w-96">{title}</div>
+      </h2>
+       {id === 6 && <div className="relative">
+          <div className={`absolute -bottom-64 right-0`}>
             <Lottie options={{
               loop: copied, 
               autoplay: copied, 
@@ -91,13 +103,10 @@ export const BentoGridItem = ({
               }
             }}/>
           </div>
-          <button>hello world</button>
         </div>}
-      <div className={ cn('absolute inset-0 w-full h-full bg-gray-500/0 group-hover/bento:bg-gray-500/20 transition-all ease-in-out') }></div>
-      <h2 className={cn(titleClassName, 'relative text-white font-semibold text-lg transition-transform ease-in-out md:h-full min-h-40 flex flex-col p-5 lg:p-10')}>
-        <div className="font-extralight font-sans text-sm md:text-xs text-[#c1c2d3] lg:text-base relative">{description}</div>
-        <div className="font-bold tracking-wide text-lg md:text-2xl max-w-96">{title}</div>
-      </h2>
+      {id === 6 && 
+        <TWButton className="relative max-w-xs block mx-auto px-4 py-2" icon={<IoCopyOutline/>} position="right" onClick={() => handleCopy(copied, setCopied)}>{copied ? 'copied' : 'copy email'}&nbsp;</TWButton>
+      }
     </div>
   );
 };
