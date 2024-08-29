@@ -5,6 +5,7 @@ import { IconArrowWaveRightUp, IconBoxAlignRightFilled, IconBoxAlignTopLeft, Ico
 import { BentoGrid } from "@/components/ui/BentoGrid";
 import { Grid } from "@/components/Grid";
 import { gridItems, navItems } from "@/data";
+import RecentProjects from '../components/RecentProjects';
 
 const Skeleton = () => (
   <div className="flex flex-1 w-full h-full rounded-xl "></div>
@@ -17,6 +18,7 @@ export default function Home() {
         <FloatingNavBar navItems={navItems}/>
         <Hero />
         <Grid items={gridItems} className=""/>
+        <RecentProjects/>
       </div>
     </main>
   );
